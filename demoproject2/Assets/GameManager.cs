@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static int heart;
+    public static int love;
     void Start()
     {
-        
+        love = PlayerPrefs.GetInt("love", 1);
+        heart = PlayerPrefs.GetInt("heart", 0);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R)) 
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 }
